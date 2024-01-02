@@ -46,6 +46,7 @@ body {
 }
 
 #chart-profits {
+    z-index: 100000;
     position: relative;
     width: 400px;
     height: 400px;
@@ -242,7 +243,7 @@ box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 border-radius: 10px;
 }
 
-.vouch2 {
+.friends {
     width: 400px;
     height: 310px;
     background-color: #f5f5f5;
@@ -257,29 +258,27 @@ border-radius: 10px;
     font-family: 'DM Sans', sans-serif;
     opacity: 0;
     transform: translateX(100%);
-    animation: vouch2Slide 1.5s ease forwards;
+    animation: friendsSlide 1.5s ease forwards;
 }
 
-@keyframes vouch2Slide {
+#friends-text {
+    font-size: 24px;
+    margin: 20px;
+    font-weight: bold;
+    color: black; 
+}
+
+.friend {
+    font-size: 18px;
+    margin: 5px 0;
+    color: #666;
+}
+
+@keyframes friendsSlide {
     to {
         opacity: 1;
         transform: translateX(0);
     }
-}
-
-#vouch2-text {
-    color: black;
-    font-weight: bold;
-    font-size: 24px;
-    margin-top: 20px;
-}
-
-#vouch2-image {
-    width: 350px;
-    height: 200px;
-    margin-top: 20px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
 }
 
 @media (prefers-contrast: high) {
