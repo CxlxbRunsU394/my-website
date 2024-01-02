@@ -1,304 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>cxlxb.site</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      font-family: 'Arial', sans-serif;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      background: #000;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profits</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap">
+    <style>
+        body {
+            background: #393737;
+            margin: 0;
+            overflow: hidden;
+            color: white;
+        }
+
+        #chart-container {
+            display: flex;
+            gap: 100px;
+            position: relative;
+        }
+
+        #chart-profits {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            margin: 20px;
+        }
+
+        .profile {
+            width: 400px;
+            height: 600px;
+            background-color: #f5f5f5;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        #profile-text {
+            color: black;
+            font-weight: bold;
+            font-size: 40px;
+            margin-top: 20px;
+        }
+
+        #balance-text {
+            color: black;
+            font-weight: bold;
+            font-size: 32px;
+            margin-top: 200px;
+        }
+
+        #time-until-goal {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            font-weight: bold;
+            font-size: 28px;
+            transform: translateX(-50%);
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .pfpcircle {
+            width: 150px;
+            height: 150px;
+            background-color: #ded9d9;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -75%);
+            overflow: hidden;
+        }
+
+        .pfpcircle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #pie-chart {
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .extra {
+            width: 400px;
+            height: 400px;
+            background-color: #f5f5f5;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        #extra-text {
+            color: black;
+            font-weight: bold;
+            font-size: 40px;
+            margin-top: 20px;
+        }
+
+        #user-text {
+            color: black;
+            font-weight: bold;
+            font-size: 24px;
+            margin-top: 30px;
+        }
+
+        #daily-goal-text {
+            color: black;
+            font-weight: bold;
+            font-size: 24px;
+            margin-top: 30px;
+        }
+
+        #set-goal-text {
+            color: black;
+            font-weight: bold;
+            font-size: 24px;
+            margin-top: 30px;
+        }
+        #predictor-text
+        {
+            color: black;
+            font-weight: bold;
+            font-size: 24px;
+            margin-top: 30px;
+        }
+
+        #pred-usage-text {
+            color: black;
+            font-weight: bold;
+            font-size: 24px;
+            margin-top: 30px;
+        }
+
+        .vouch {
+        width: 400px;
+        height: 310px;
+        background-color: #f5f5f5;
+        margin: 20px;
+        top: -200px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        font-family: 'DM Sans', sans-serif;
     }
 
-    .custom-link:hover .profile-circle img {
-      filter: grayscale(100%);
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-      transition: filter 0.5s ease, box-shadow 0.5s ease;
+    #vouch-text {
+        color: black;
+        font-weight: bold;
+        font-size: 24px;
+        margin-top: 20px;
     }
 
-    video {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      transform: translate(-50%, -50%);
-      z-index: 1;
+    #vouch-image {
+        width: 350px;
+        height: 200px; 
+        margin-top: 20px; 
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+        border-radius: 10px;
     }
 
-    .custom-container {
-      z-index: 50;
-      margin-top: 10px;
-      display: none;
-      height: 49vh;
-      width: 34%;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      border-radius: 57.5px;
-      border-width: 1.5px;
-      border-color: #ffffff0d;
-      background-color: #0000001a;
-      padding: 15px;
-      backdrop-filter: blur(52px);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
+    .vouch2 {
+            width: 400px;
+            height: 310px;
+            background-color: #f5f5f5;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            position: absolute;
+            right: 0;
+            top: 440px;
+            overflow: hidden;
+            text-align: center;
+            font-family: 'DM Sans', sans-serif;
+        }
 
-    @media (min-width: 768px) {
-      .inner-container {
-        display: flex;
-        width: 465px;
-      }
-    }
+        #vouch2-text {
+            color: black;
+            font-weight: bold;
+            font-size: 24px;
+            margin-top: 20px;
+        }
 
-    .profile-circle {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin-right: 10px;
-    }
-
-    .profile-circle img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-    }
-
-    #overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(10px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      opacity: 1;
-      transition: opacity 0.5s ease;
-      z-index: 2;
-    }
-
-    #clickToEnter {
-      font-size: 2em;
-      font-weight: bold;
-      color: #fff;
-      text-align: center;
-      cursor: pointer;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-      transition: opacity 0.5s ease;
-    }
-
-    .circle {
-      position: absolute;
-      top: -70px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 2px solid #ffffff0d;
-      margin-bottom: 10px;
-    }
-
-    .red-text {
-      color: #ff6161;
-      margin-top: 50px;
-      z-index: 51;
-      font-size: 2rem;
-      position: relative;
-    }
-
-    .gif-overlay {
-      position: absolute;
-      top: 80px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 30px;
-      height: 30px;
-      pointer-events: none;
-    }
-
-    .inner-container .custom-link {
-      position: absolute;
-      top: 260px;
-      left: 350px;
-      display: flex;
-      align-items: center;
-    }
-
-    .inner-container .custom-link img {
-      width: 45px;
-      height: auto;
-    }
-
-    .line {
-      width: 100%;
-      height: 1px;
-      background-color: #333;
-      margin-bottom: 10px;
-    }
-
-    .cxlxb-dev {
-      color: white;
-      font-size: 1.5em;
-      font-weight: bold;
-      width: 100%;
-      left: 30%;
-      position: absolute;
-      top: 210px;
-    }
-
-    .txtEffect {
-      font-size: 1rem;
-      font-weight: 300;
-      color: #888;
-      white-space: nowrap;
-      width: 100%;
-      max-width: fit-content;
-      overflow: hidden;
-      animation: typing09 6s steps(30) infinite alternate, cursor07 1s step-end infinite alternate;
-      border-right: 3px solid;
-      margin-top: 20px;
-      margin-bottom: 40px;
-    }
-
-    .inner-container {
-      border-radius: 0 0 5px 5px;
-      display: flex;
-      height: 50%;
-      width: 95%;
-      flex-direction: row-reverse;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 15px 0;
-      overflow: hidden;
-      border-top-left-radius: 50px;
-      border-top-right-radius: 50px;
-      border-bottom-left-radius: 50px;
-      border-bottom-right-radius: 50px;
-      border: 1.5px solid #ffffff0d;
-      background-color: #ffffff05;
-      padding: 12px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-    }
-
-    .online-text {
-      color: white;
-      font-size: 1.3em;
-      text-align: center;
-      margin-top: 10px;
-      z-index: 53;
-      position: absolute;
-      top: 250px;
-      left: 144px;
-    }
-
-    .red-circle {
-      position: absolute;
-      top: 270px;
-      left: 103px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background-color: #ff6461;
-      z-index: 52;
-    }
-
-    .gif-overlay img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .circle img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    @keyframes typing09 {
-      from {
-        width: 0;
-      }
-    }
-
-    @keyframes cursor07 {
-      80% {
-        border-color: transparent;
-      }
-    }
-  </style>
+        #vouch2-image {
+            width: 350px;
+            height: 200px;
+            margin-top: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-
-  <video id="myVideo" loop playsinline>
-    <source src="https://cdn.discordapp.com/attachments/1044770474829291632/1183276106246279248/HEAVY_STORM.mp4">
-    Your browser does not support the video tag.
-  </video>
-
-  <div class="custom-container mx-auto">
-    <div class="circle">
-      <img src="anim.gif" alt="Image in Circle">
+    <div id="chart-container">
+        <div id="chart-profits">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="profile">
+            <canvas id="pie-chart" style="max-width: 300px; max-height: 250px;"></canvas>
+            <div id="profile-text">PROFILE</div>
+            <div id="balance-text">BALANCE: 60,000</div>
+            <div class="pfpcircle">
+                <img src="noFilter.png" alt="Profile Image">
+            </div>
+        </div>
+        <div class="extra">
+            <div id="extra-text">EXTRA</div>
+            <div id="user-text">User: Cxlxb</div>
+            <div id="daily-goal-text">Daily Goal: R$ 3000</div>
+            <div id="set-goal-text">Goal By Feb 1: R$ 125,000</div>
+            <div id="predictor-text">Currently Using: PyDox</div>
+            <div id="pred-usage-text">Predictor Usage: BOT</div>
+        </div>
     </div>
-    <p class="red-text">c</p>
-    <div class="gif-overlay">
-      <img src="sparkles.gif" alt="GIF Overlay">
-    </div>
-    <div class="txtEffect">
-      Living life, love god.
-    </div>
-    <div class="inner-container">
-      <div class="red-circle"></div>
-      <div class="online-text">Do Not Disturb</div>
-      <div class="cxlxb-dev">cxlxb_devs</div>
-      <div class="line"></div>
-      <div class="profile-circle">
-        <img src="pfp.png" alt="Your Profile Picture">
-      </div>
-      <a href="https://www.roblox.com/users/5248933548/profile" target="_blank" class="custom-link">
-        <img src="rblx.png" alt="Link Image">
-      </a>
-    </div>
-  </div>
 
-  <div id="overlay" onclick="removeOverlay()">
-    <div id="clickToEnter">CLICK TO ENTER</div>
-  </div>
+    <div class="vouch">
+        <div id="vouch-text">VOUCH</div>
+        <img id="vouch-image" src="win.png" alt="Win Image">
+    </div>
 
-  <script>
-    function removeOverlay() {
-      var overlay = document.getElementById('overlay');
-      var video = document.getElementById('myVideo');
-      var container = document.querySelector('.custom-container');
+    <div class="vouch2">
+        <div id="vouch2-text">VOUCH #2</div>
+        <img id="vouch2-image" src="win2.png" alt="Win Image">
+    </div>
 
-      overlay.style.opacity = 0;
-      setTimeout(function() {
-        overlay.style.display = 'none';
-        container.style.display = 'flex';
-        video.play();
-      }, 500);
-    }
-  </script>
+    <div id="time-until-goal">TIME UNTIL GOAL: <span id="countdown"></span></div>
+
+    <script>
+        var dailyGoal = 3000;
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, "rgba(128, 0, 128, 0.7)");
+        gradient.addColorStop(1, "rgba(255, 255, 255, 0.6)");
+
+        var chartData = {
+            labels: ['Today', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            datasets: [{
+                label: 'My Profits',
+                data: [12000, 0, 0, 0, 0],
+                backgroundColor: gradient,
+                borderColor: 'rgba(128, 0, 128, 1)',
+                borderWidth: 2,
+                pointRadius: 6,
+                pointHoverRadius: 8,
+                pointBackgroundColor: '#fff',
+                pointBorderColor: [],
+                pointBorderWidth: 2,
+                fill: true,
+                lineTension: 0.4
+            }]
+        };
+
+        chartData.datasets[0].data.forEach((value) => {
+            chartData.datasets[0].pointBorderColor.push(value >= dailyGoal ? 'green' : 'red');
+        });
+
+        var chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    }
+                },
+                y: {
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.1)'
+                    },
+                    ticks: {
+                        callback: function (value, index, values) {
+                            return 'R$' + value;
+                        }
+                    }
+                }
+            }
+        };
+
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: chartData,
+            options: chartOptions
+        });
+
+        var pieCtx = document.getElementById('pie-chart').getContext('2d');
+        var pieChart = new Chart(pieCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Purchased', 'PyDox Profit'],
+                datasets: [{
+                    data: [20000, 40000],
+                    backgroundColor: ['rgba(163, 152, 2, 0.8)', 'rgba(128, 0, 128, 0.7)'],
+                    hoverBackgroundColor: ['rgba(163, 152, 2, 1)', 'rgba(128, 0, 128, 0.8)']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '40%',
+            }
+        });
+
+        var countDownDate = new Date("Feb 1, 2024 00:00:00").getTime();
+
+        var x = setInterval(function () {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
+
