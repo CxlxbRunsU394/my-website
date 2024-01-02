@@ -116,7 +116,12 @@
                 responsive: true,
                 maintainAspectRatio: false,
                 cutout: '40%',
-            }
+                animation: {
+                    animateScale: true,
+                    animateRotate: true,
+                    duration: 1500,
+                    easing: 'easeInOutQuart'
+                }            }
         });
 
         var countDownDate = new Date("Feb 1, 2024 00:00:00").getTime();
