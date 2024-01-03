@@ -17,7 +17,7 @@
         <div class="profile">
             <canvas id="pie-chart" style="max-width: 300px; max-height: 250px;"></canvas>
             <div id="profile-text">PROFILE</div>
-            <div id="balance-text">BALANCE: 64,016.58</div>
+            <div id="balance-text">BALANCE: 63,616.58</div>
             <div class="pfpcircle">
                 <img src="noFilter.png" alt="Profile Image">
             </div>
@@ -63,10 +63,10 @@
         gradient.addColorStop(1, "rgba(255, 255, 255, 0.6)");
 
         var chartData = {
-            labels: ['Yesterday', 'Today', 'Wednesday', 'Thursday', 'Friday'],
+            labels: ['Monday', 'Yesterday', 'Today', 'Thursday', 'Friday'],
             datasets: [{
                 label: 'My Profits',
-                data: [12000, 3016.58, 0, 0, 0],
+                data: [12000, 3016.58, 1700, 0, 0],
                 backgroundColor: gradient,
                 borderColor: 'rgba(128, 0, 128, 1)',
                 borderWidth: 2,
@@ -342,12 +342,6 @@
     orb.fill = colorPalette.randomColor();
   });
 });
-
-    
-    </script>
-</body>
-</html>
-
 
     
     </script>
