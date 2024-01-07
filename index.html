@@ -3,346 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profits</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap">
-    <link rel="stylesheet" href="profits.css">
+    <title>bloxgoals.site - Release Date</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas class="orb-canvas"></canvas>
-    <div id="chart-container">
-        <div id="chart-profits">
-            <canvas id="myChart"></canvas>
-        </div>
-        <div class="profile">
-            <canvas id="pie-chart" style="max-width: 300px; max-height: 250px;"></canvas>
-            <div id="profile-text">PROFILE</div>
-            <div id="balance-text">BALANCE: 87,170.00</div>
-            <div class="pfpcircle">
-                <img src="noFilter.png" alt="Profile Image">
+    <div class="hero">
+        <div class="container">
+            <h1 class="title">BloxGoals</h1>
+            <div class="clock">
+                <span id="dys">00</span>
+                <span>:</span>
+                <span id="hrs">00</span>
+                <span>:</span>
+                <span id="min"> 00</span>
             </div>
         </div>
-        <div class="extra">
-            <div id="extra-text">EXTRA</div>
-            <div id="user-text">User: Cxlxb</div>
-            <div id="daily-goal-text">Daily Goal: R$ 3,500</div>
-            <div id="set-goal-text">Goal By Feb 1: R$ 125,000</div>
-            <div id="predictor-text">Currently Using: PyDox</div>
-            <div id="pred-usage-text">Predictor Usage: BOT</div>
-        </div>
     </div>
-
-    <div class="vouch">
-        <div id="vouch-text">VOUCH</div>
-        <img id="vouch-image" src="win.png" alt="Win Image">
-    </div>
-
-    <div class="friends">
-      <div id="friends-text">FRIENDS</div>
-      <div class="friend">Mouad</div>
-      <div class="friend">Cyxz</div>
-      <div class="friend">Bryan</div>
-      <div class="friend">Fresh</div>
-      <div class="friend">azzy</div>
-      <div class="friend">Dill</div>
-      <div class="friend">and many more :]</div>
-  </div>
-
-  
-
-    <div id="time-until-goal">TIME UNTIL GOAL: <span id="countdown"></span></div>
 
     <script>
-        var dailyGoal = 3500;
+        function run() {
+            let dys = document.getElementById("dys");
+            let hrs = document.getElementById("hrs");
+            let min = document.getElementById("min");
 
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var gradient = ctx.createLinearGradient(0, 0, 0, 400);
+            let release = new Date(2024, 0, 8, 12, 0, 0)
 
-        gradient.addColorStop(0, "rgba(128, 0, 128, 0.7)");
-        gradient.addColorStop(1, "rgba(255, 255, 255, 0.6)");
+            let leftOver = release - new Date();
 
-        var chartData = {
-            labels: ['Tuesday', 'Wednesday', 'Thursday', 'Yesterday', 'Today'],
-            datasets: [{
-                label: 'My Profits',
-                data: [3000, 6000, 3500, 3500, 9170],
-                backgroundColor: gradient,
-                borderColor: 'rgba(128, 0, 128, 1)',
-                borderWidth: 2,
-                pointRadius: 6,
-                pointHoverRadius: 8,
-                pointBackgroundColor: '#fff',
-                pointBorderColor: [],
-                pointBorderWidth: 2,
-                fill: true,
-                lineTension: 0.4
-            }]
-        };
+            let days = Math.floor(leftOver / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((leftOver % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((leftOver % (1000 * 60 * 60)) / (1000 * 60));
 
-        chartData.datasets[0].data.forEach((value) => {
-            chartData.datasets[0].pointBorderColor.push(value >= dailyGoal ? 'green' : 'red');
-        });
+            dys.innerHTML = days;
+            hrs.innerHTML = hours;
+            min.innerHTML = minutes;
+        }
 
-        var chartOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                x: {
-                    grid: {
-                        display: false
-                    }
-                },
-                y: {
-                    grid: {
-                        color: 'rgba(0, 0, 0, 0.1)'
-                    },
-                    ticks: {
-                        callback: function (value, index, values) {
-                            return 'R$' + value;
-                        }
-                    }
-                }
-            }
-        };
-
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: chartData,
-            options: chartOptions
-        });
-
-        var pieCtx = document.getElementById('pie-chart').getContext('2d');
-        var pieChart = new Chart(pieCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Purchased', 'PyDox Profit'],
-                datasets: [{
-                    data: [21000, 66170],
-                    backgroundColor: ['rgba(163, 152, 2, 0.8)', 'rgba(128, 0, 128, 0.7)'],
-                    hoverBackgroundColor: ['rgba(163, 152, 2, 1)', 'rgba(128, 0, 128, 0.8)']
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                cutout: '40%',
-                animation: {
-                    animateScale: true,
-                    animateRotate: true,
-                    duration: 1500,
-                    easing: 'easeInOutQuart'
-                }
-            }
-        });
-
-
-        var countDownDate = new Date("Feb 1, 2024 00:00:00").getTime();
-
-        var x = setInterval(function () {
-            var now = new Date().getTime();
-            var distance = countDownDate - now;
-
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-                + minutes + "m " + seconds + "s ";
-
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("countdown").innerHTML = "EXPIRED";
-            }
-        }, 1000);
-    </script>
-    <script type="module">
-        import * as PIXI from "https://cdn.skypack.dev/pixi.js@5.x";
-    import { KawaseBlurFilter } from "https://cdn.skypack.dev/@pixi/filter-kawase-blur@3.2.0";
-    import SimplexNoise from "https://cdn.skypack.dev/simplex-noise@3.0.0";
-    import hsl from "https://cdn.skypack.dev/hsl-to-hex";
-    import debounce from "https://cdn.skypack.dev/debounce";
-    
-    function random(min, max) {
-      return Math.random() * (max - min) + min;
-    }
-    
-    function map(n, start1, end1, start2, end2) {
-      return ((n - start1) / (end1 - start1)) * (end2 - start2) + start2;
-    }
-    
-    const simplex = new SimplexNoise();
-    
-    class ColorPalette {
-      constructor() {
-        this.setColors();
-        this.setCustomProperties();
-      }
-    
-      setColors() {
-        this.hue = ~~random(220, 360);
-        this.complimentaryHue1 = this.hue + 30;
-        this.complimentaryHue2 = this.hue + 60;
-        this.saturation = 95;
-        this.lightness = 50;
-    
-        this.baseColor = hsl(this.hue, this.saturation, this.lightness);
-        this.complimentaryColor1 = hsl(
-          this.complimentaryHue1,
-          this.saturation,
-          this.lightness
-        );
-        this.complimentaryColor2 = hsl(
-          this.complimentaryHue2,
-          this.saturation,
-          this.lightness
-        );
-    
-        this.colorChoices = [
-          this.baseColor,
-          this.complimentaryColor1,
-          this.complimentaryColor2
-        ];
-      }
-    
-      randomColor() {
-        return this.colorChoices[~~random(0, this.colorChoices.length)].replace(
-          "#",
-          "0x"
-        );
-      }
-    
-      setCustomProperties() {
-        document.documentElement.style.setProperty("--hue", this.hue);
-        document.documentElement.style.setProperty(
-          "--hue-complimentary1",
-          this.complimentaryHue1
-        );
-        document.documentElement.style.setProperty(
-          "--hue-complimentary2",
-          this.complimentaryHue2
-        );
-      }
-    }
-    
-    class Orb {
-      constructor(fill = 0x000000) {
-        this.bounds = this.setBounds();
-        this.x = random(this.bounds["x"].min, this.bounds["x"].max);
-        this.y = random(this.bounds["y"].min, this.bounds["y"].max);
-    
-        this.scale = 1;
-    
-        this.fill = fill;
-    
-        this.radius = random(window.innerHeight / 6, window.innerHeight / 3);
-    
-        this.xOff = random(0, 1000);
-        this.yOff = random(0, 1000);
-        this.inc = 0.002;
-    
-        this.graphics = new PIXI.Graphics();
-        this.graphics.alpha = 0.825;
-    
-        window.addEventListener(
-          "resize",
-          debounce(() => {
-            this.bounds = this.setBounds();
-          }, 250)
-        );
-      }
-    
-      setBounds() {
-        const maxDist =
-          window.innerWidth < 1000 ? window.innerWidth / 3 : window.innerWidth / 5;
-        const originX = window.innerWidth / 1.25;
-        const originY =
-          window.innerWidth < 1000
-            ? window.innerHeight
-            : window.innerHeight / 1.375;
-    
-        return {
-          x: {
-            min: originX - maxDist,
-            max: originX + maxDist
-          },
-          y: {
-            min: originY - maxDist,
-            max: originY + maxDist
-          }
-        };
-      }
-    
-      update() {
-        const xNoise = simplex.noise2D(this.xOff, this.xOff);
-        const yNoise = simplex.noise2D(this.yOff, this.yOff);
-        const scaleNoise = simplex.noise2D(this.xOff, this.yOff);
-    
-        this.x = map(xNoise, -1, 1, this.bounds["x"].min, this.bounds["x"].max);
-        this.y = map(yNoise, -1, 1, this.bounds["y"].min, this.bounds["y"].max);
-        this.scale = map(scaleNoise, -1, 1, 0.5, 1);
-    
-        this.xOff += this.inc;
-        this.yOff += this.inc;
-      }
-    
-      render() {
-        this.graphics.x = this.x;
-        this.graphics.y = this.y;
-        this.graphics.scale.set(this.scale);
-    
-        this.graphics.clear();
-    
-        this.graphics.beginFill(this.fill);
-        this.graphics.drawCircle(0, 0, this.radius);
-        this.graphics.endFill();
-      }
-    }
-    
-    const app = new PIXI.Application({
-      view: document.querySelector(".orb-canvas"),
-      resizeTo: window,
-      transparent: true
-    });
-    
-    app.stage.filters = [new KawaseBlurFilter(30, 10, true)];
-    
-    const colorPalette = new ColorPalette();
-    
-    const orbs = [];
-    
-    for (let i = 0; i < 10; i++) {
-      const orb = new Orb(colorPalette.randomColor());
-    
-      app.stage.addChild(orb.graphics);
-    
-      orbs.push(orb);
-    }
-    
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      app.ticker.add(() => {
-        orbs.forEach((orb) => {
-          orb.update();
-          orb.render();
-        });
-      });
-    } else {
-      orbs.forEach((orb) => {
-        orb.update();
-        orb.render();
-      });
-    }
-    
-    document.addEventListener("click", () => {
-  colorPalette.setColors();
-  colorPalette.setCustomProperties();
-
-  orbs.forEach((orb) => {
-    orb.fill = colorPalette.randomColor();
-  });
-});
-
-    
+        setInterval(run, 1000);
     </script>
 </body>
 </html>
