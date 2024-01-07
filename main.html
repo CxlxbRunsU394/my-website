@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloxGoals | Goal Setting & More</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.3.1/swiper-bundle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <a href="#">BloxGoals</a>
+            </div>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Server</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="main-page">
+            <div class="info">
+                <h4>Try BloxGoals</h4>
+                <h1>#1 Bloxflip Goal Setter</h1>
+                <p>BloxGoals Is The #1 Goal Setter Page And So Much More. You Can Always Check For Daily Profits, Total Balances, And So Much More :) Why Not Check Us Out?</p>
+                <a id="open" href="#" onclick="create()">Your Goal Page</a>
+            </div>
+            <div class="images swiper">
+                <div class="swiper-wrapper">
+                    <div class="image swiper-slide">
+                        <img src="images/gains.png" alt="">
+                    </div>
+                    <div class="image swiper-slide">
+                        <img src="images/calculator.png" alt="">
+                    </div>
+                    <div class="image swiper-slide">
+                        <img src="images/moneybg.png" alt="">
+                    </div>
+                    <div class="image swiper-slide">
+                        <img src="images/rbx.png" alt="">
+                    </div>
+                    <div class="image swiper-slide">
+                        <img src="images/coding.png" alt="">
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-left"></i>
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.3.1/swiper-bundle.min.js"></script>
+    <script>
+
+        let anchor = document.getElementById("open");  
+        let container = document.querySelector(".container");
+        let h4 = document.querySelector(".info h4");
+        let p = document.querySelector(".info p");
+        let h1 = document.querySelector(".info h1");
+        let anchor_tags = document.querySelectorAll(".header ul li a");
+        let logo = document.querySelector(".logo a");
+
+        function create() {
+             window.location.href = "create.html";
+         }
+
+        const swiper = new Swiper(".swiper", {
+            navigation: {
+                nextEl:".fa-chevron-right",
+                prevEl:".fa-chevron-left",
+            },
+            autoplay: {
+                delay:2000
+            },
+            on: {
+                slideChange:function() {
+                    const index = this.realIndex + 1;
+                    if (index==1) {
+                        container.style.background = "rgb(36, 36, 36)";
+                        container.style.background = "linear-gradient(168deg, #232526, #414345)";
+
+                        anchor.style.color = "#1c1c1c";
+                        anchor.style.backgroundColor = "#fff";
+                        anchor.style.borderColor = "#fff";
+
+                        anchor_tags.forEach(anchor_tag => {
+                            anchor_tag.style.color = "#fff";
+                        })
+                        
+                        logo.style.color = "#fff";
+                        h1.style.color = "#fff";
+                        p.style.color = "#fff";
+                        h4.style.color = "#fff";
+                    }
+                    if (index==2) {
+                        container.style.background = "linear-gradient(172deg, rgba(255, 247, 199, 1), rgba(255, 231, 97, 1))";
+
+                        anchor.style.color = "rgba(253, 236, 151, 0.8)";
+                        anchor.style.backgroundColor = "#1c1c1c";
+                        anchor.style.borderColor = "#1c1c1c";
+
+                        anchor_tags.forEach(anchor_tag => {
+                            anchor_tag.style.color = "#1c1c1c";
+                        })
+                        
+                        logo.style.color = "#1c1c1c";
+                        h1.style.color = "#1c1c1c";
+                        p.style.color = "#1c1c1c";
+                        h4.style.color = "#1c1c1c";
+                    }
+                    if (index==3) {
+                        container.style.background = "linear-gradient(152deg, rgba(0, 119, 182, 1), rgba(8, 24, 68, 1))";
+
+                        anchor.style.color = "rgba(8, 24, 68, 1)";
+                        anchor.style.backgroundColor = "#fff";
+                        anchor.style.borderColor = "#fff";
+
+                        anchor_tags.forEach(anchor_tag => {
+                            anchor_tag.style.color = "#fff";
+                        })
+                        
+                        logo.style.color = "#fff";
+                        h1.style.color = "#fff";
+                        p.style.color = "#fff";
+                        h4.style.color = "#fff";
+                    }
+                    if (index==4) {
+                        container.style.background = "#ebba98";
+                        container.style.background = "linear-gradient(172deg, rgba(255, 204, 177, 1), rgba(255, 168, 122, 1))";
+
+                        anchor.style.color = "#fbba98";
+                        anchor.style.backgroundColor = "#1c1c1c";
+                        anchor.style.borderColor = "#1c1c1c";
+
+                        anchor_tags.forEach(anchor_tag => {
+                            anchor_tag.style.color = "#1c1c1c";
+                        })
+                        
+                        logo.style.color = "#1c1c1c";
+                        h1.style.color = "#1c1c1c";
+                        p.style.color = "#1c1c1c";
+                        h4.style.color = "#1c1c1c";
+                    }
+                    if (index==5) {
+                        container.style.background = "#eb9a6e";
+                        container.style.background = "linear-gradient(172deg, rgba(223, 100, 128, 1), rgba(142, 30, 56, 1))";
+
+                        anchor.style.color = "rgb(142,30,56)";
+                        anchor.style.backgroundColor = "#1c1c1c";
+                        anchor.style.borderColor = "#1c1c1c";
+
+                        anchor_tags.forEach(anchor_tag => {
+                            anchor_tag.style.color = "#fff";
+                        })
+                        
+                        logo.style.color = "#fff";
+                        h1.style.color = "#fff";
+                        p.style.color = "#fff";
+                        h4.style.color = "#fff";
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
