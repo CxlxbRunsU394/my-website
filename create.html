@@ -304,7 +304,7 @@
     var lastSubmissionTime = localStorage.getItem("lastSubmissionTime");
 
     if (lastSubmissionTime && (Date.now() - lastSubmissionTime) < 600000) {
-        alert("Your still on cooldown lol. Check again another time for sure!");
+        alert("You're still on cooldown. Check again another time for sure!");
     } else {
         localStorage.setItem("lastSubmissionTime", Date.now());
 
@@ -313,6 +313,8 @@
             var roblox = document.getElementById("rblx").value;
             var discord = document.getElementById("dscrd").value;
 
+            discord = discord.replace(/@/g, '');
+
             var payload = {
                 embeds: [{
                     title: "bloxgoals.site",
@@ -320,19 +322,25 @@
                 }]
             };
 
-            var payloadJSON = JSON.stringify(payload);
+            if (web.includes('http://') || web.includes('https://') || roblox.includes('http://') || roblox.includes('https://') || discord.includes('http://') || discord.includes('https://')) {
+                alert("You've been caught >:)");
+            } else {
+                var payloadJSON = JSON.stringify(payload);
 
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "https://discord.com/api/webhooks/1193701916912402483/btBSO1wPwMUlAr89-BikqjMzSOQkosQszFMObZZVRrWSmLBMInTcuHT7EnjEvuzHgXxL", true);
-            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-            xhr.send(payloadJSON);
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "https://discord.com/api/webhooks/1193704534128738414/dt42HmyEAilnMgTdo3q0Qn7Iqkf-XmnGgX-_L903POlI44F7AvNAFhoZhzRKzj9p8XA_", true);
+                xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                xhr.send(payloadJSON);
 
-            alert("Notice Received!");
+                alert("Notice Received!");
+            }
         }
 
         set();
     }
 }
+
+
 
 
       </script>
