@@ -47,7 +47,7 @@ body {
 }
 
 #chart-profits {
-    z-index: 100000;
+    z-index: 10000000;
     position: relative;
     width: 400px;
     height: 400px;
