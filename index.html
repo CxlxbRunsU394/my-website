@@ -17,7 +17,7 @@
         <div class="profile">
             <canvas id="pie-chart" style="max-width: 300px; max-height: 250px;"></canvas>
             <div id="profile-text">PROFILE</div>
-            <div id="balance-text">BALANCE: 166,700.00</div>
+            <div id="balance-text">BALANCE: 180,000.93</div>
             <div class="pfpcircle">
                 <img src="pfp.jpg" alt="Profile Image">
             </div>
@@ -53,7 +53,7 @@
     <div id="time-until-goal">TIME UNTIL GOAL: <span id="countdown"></span></div>
 
     <script>
-        var dailyGoal = 3000;
+        var dailyGoal = 5000;
 
         var ctx = document.getElementById('myChart').getContext('2d');
         var gradient = ctx.createLinearGradient(0, 0, 0, 400);
@@ -62,10 +62,10 @@
         gradient.addColorStop(1, "rgba(255, 255, 255, 0.6)");
 
         var chartData = {
-            labels: ['Thursday', 'Friday', 'Saturday', 'Sunday', 'Today'],
+            labels: ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Today'],
             datasets: [{
                 label: 'My Profits',
-                data: [7000, 29000, 6000, 5000, 7700],
+                data: [6000, 5000, 7700, 6000, 7000],
                 backgroundColor: gradient,
                 borderColor: 'rgba(128, 0, 128, 1)',
                 borderWidth: 2,
@@ -117,7 +117,7 @@
             data: {
                 labels: ['Purchased', 'PyDox Profit'],
                 datasets: [{
-                    data: [21000, 145700],
+                    data: [21000, 159000],
                     backgroundColor: ['rgba(163, 152, 2, 0.8)', 'rgba(128, 0, 128, 0.7)'],
                     hoverBackgroundColor: ['rgba(163, 152, 2, 1)', 'rgba(128, 0, 128, 0.8)']
                 }]
