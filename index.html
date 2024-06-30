@@ -1,346 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profits</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap">
-    <link rel="stylesheet" href="profits.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>cxlxb's overlooks</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"/>
 </head>
 <body>
-    <canvas class="orb-canvas"></canvas>
-    <div id="chart-container">
-        <div id="chart-profits">
-            <canvas id="myChart"></canvas>
-        </div>
-        <div class="profile">
-            <canvas id="pie-chart" style="max-width: 300px; max-height: 250px;"></canvas>
-            <div id="profile-text">PROFILE</div>
-            <div id="balance-text">BALANCE: 0.00</div>
-            <div class="pfpcircle">
-                <img src="pfp.jpg" alt="Profile Image">
+    <header class="header">
+        <a href="#home" class="logo">Cxlxb<span> Devs</span></a>
+        <i class="bx bx-menu" id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1>Hi, It's <span>Cxlxb</span></h1>
+            <h3>I'm a <span>Frontend Developer</span></h3>
+            <p>Cxlxb has exquisite experience with many programming languages such as HTML, JS, CSS, Python, Java, and many more. He has created many mini website projects and cool tools to be used for other sites aswell.</p>
+            <div class="social-icons">
+                <a href="#">
+                    <i class="bx bxl-github"></i>
+                </a>
+                <a href="#">
+                    <i class="bx bxl-discord"></i>
+                </a>
+            </div>
+            <div class="btn-group">
+                <a href="https://discord.com/users/771464297419243560" target="_blank" class="btn">Hire</a>
+                <a href="#contact" class="btn">Contact</a>
             </div>
         </div>
-        <div class="extra">
-            <div id="extra-text">EXTRA</div>
-            <div id="user-text">User: Cxlxb</div>
-            <div id="daily-goal-text">Daily Goal: R$ 0</div>
-            <div id="set-goal-text">Goal By Feb 1: R$ 0</div>
-            <div id="predictor-text">Currently Using: PyDox</div>
-            <div id="pred-usage-text">Usage: PASSIVE</div>
+        <div class="home-img">
+            <img src="pfp.png" alt="">
         </div>
-    </div>
+    </section>
 
-    <div class="vouch">
-        <div id="vouch-text">VOUCH</div>
-        <img id="vouch-image" src="win.png" alt="Win Image">
-    </div>
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="pfp.png" alt="">
+        </div>
+        <div class="about-content">
+            <h2>About <span>Me</span></h2>
+            <p>Hello, my name is Caleb, otherwise known as Cxlxb online. I started out learning how to program at the age of 8 by taking online coding camps for Python and HTML. Sure, I learned some basics, but I wanted to know more. I got into more in depth with website making since I wanted to know behind the scenes how websites work. Curiosity has led me to such a point where I can now create great projects and more.</p>
+            <a href="#" class="btn">Projects</a>
+        </div>
+    </section>
 
-    <div class="friends">
-      <div id="friends-text">FRIENDS</div>
-      <div class="friend">Fresh</div>  
-      <div class="friend">Mason</div>  
-      <div class="friend">Richard</div>
-      <div class="friend">Bryan</div>      
-      <div class="friend">and many more :]</div>
-  </div>
+    <section class="services" id="services">
+        <h2 class="heading">Services</h2>
+        <div class="services-container">
+            <div class="service-box">
+                <div class="service-info">
+                    <i class="bx bx-desktop"></i>
+                    <h4>Web Based Tools</h4>
+                    <p>I can create interesting tools that help others with tasks that need to be completed or to help others to achieve goals. I have made tools in the past that makes someones experience gaming better, passive SOL, and more.</p>
+                </div>
+            </div>
+            <div class="service-box">
+                <div class="service-info">
+                    <i class="bx bx-code"></i>
+                    <h4>Frontend Development</h4>
+                    <p>When it comes to website UI and frontend, I can be a total grandmaster at it! Frontend is my kind of thing and I love ot be creative with it. Whatever task is needed, I'm always up for to make it better or for however you'd like.</p>
+                </div>
+            </div>
+            <div class="service-box">
+                <div class="service-info">
+                    <i class="bx bx-code-curly"></i>
+                    <h4>Backend Development</h4>
+                    <p>I can create backend code for sites to make everything work or happen like how you'd want it too. I have 4 years of experience of backend development for websites (JS) and Python and Java.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me</span></h2>
+        <form id="contact-form">
+            <div class="input-group">
+                <div class="input-box">
+                    <input type="text" id="full-name" placeholder="Full Name" required>
+                    <input type="text" id="discord-username" placeholder="Discord Username" required>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="subject" placeholder="Subject" required>
+                </div>
+            </div>
+            <div class="input-group-2">
+                <textarea id="message" cols="30" rows="12" placeholder="Your Message" required></textarea>
+                <input type="submit" value="Send Message" class="btn">
+            </div>
+        </form>
+    </section>
 
-    <div id="time-until-goal">TIME UNTIL GOAL: <span id="countdown"></span></div>
-
-    <script>
-        var dailyGoal = 5000;
-
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var gradient = ctx.createLinearGradient(0, 0, 0, 400);
-
-        gradient.addColorStop(0, "rgba(128, 0, 128, 0.7)");
-        gradient.addColorStop(1, "rgba(255, 255, 255, 0.6)");
-
-        var chartData = {
-            labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Today'],
-            datasets: [{
-                label: 'My Profits',
-                data: [0, 0, 0, 0, 0],
-                backgroundColor: gradient,
-                borderColor: 'rgba(128, 0, 128, 1)',
-                borderWidth: 2,
-                pointRadius: 6,
-                pointHoverRadius: 8,
-                pointBackgroundColor: '#fff',
-                pointBorderColor: [],
-                pointBorderWidth: 2,
-                fill: true,
-                lineTension: 0.4
-            }]
-        };
-
-        chartData.datasets[0].data.forEach((value) => {
-            chartData.datasets[0].pointBorderColor.push(value >= dailyGoal ? 'green' : 'red');
-        });
-
-        var chartOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                x: {
-                    grid: {
-                        display: false
-                    }
-                },
-                y: {
-                    grid: {
-                        color: 'rgba(0, 0, 0, 0.1)'
-                    },
-                    ticks: {
-                        callback: function (value, index, values) {
-                            return 'R$' + value;
-                        }
-                    }
-                }
-            }
-        };
-
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: chartData,
-            options: chartOptions
-        });
-
-        var pieCtx = document.getElementById('pie-chart').getContext('2d');
-        var pieChart = new Chart(pieCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Purchased', 'PyDox Profit'],
-                datasets: [{
-                    data: [30000, 190000],
-                    backgroundColor: ['rgba(163, 152, 2, 0.8)', 'rgba(128, 0, 128, 0.7)'],
-                    hoverBackgroundColor: ['rgba(163, 152, 2, 1)', 'rgba(128, 0, 128, 0.8)']
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                cutout: '40%',
-                animation: {
-                    animateScale: true,
-                    animateRotate: true,
-                    duration: 1500,
-                    easing: 'easeInOutQuart'
-                }
-            }
-        });
-
-
-        var countDownDate = new Date("Feb 1, 2024 00:00:00").getTime();
-
-        var x = setInterval(function () {
-            var now = new Date().getTime();
-            var distance = countDownDate - now;
-
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-                + minutes + "m " + seconds + "s ";
-
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("countdown").innerHTML = "time done lol";
-            }
-        }, 1000);
-    </script>
-    <script type="module">
-        import * as PIXI from "https://cdn.skypack.dev/pixi.js@5.x";
-    import { KawaseBlurFilter } from "https://cdn.skypack.dev/@pixi/filter-kawase-blur@3.2.0";
-    import SimplexNoise from "https://cdn.skypack.dev/simplex-noise@3.0.0";
-    import hsl from "https://cdn.skypack.dev/hsl-to-hex";
-    import debounce from "https://cdn.skypack.dev/debounce";
-    
-    function random(min, max) {
-      return Math.random() * (max - min) + min;
-    }
-    
-    function map(n, start1, end1, start2, end2) {
-      return ((n - start1) / (end1 - start1)) * (end2 - start2) + start2;
-    }
-    
-    const simplex = new SimplexNoise();
-    
-    class ColorPalette {
-      constructor() {
-        this.setColors();
-        this.setCustomProperties();
-      }
-    
-      setColors() {
-        this.hue = ~~random(220, 360);
-        this.complimentaryHue1 = this.hue + 30;
-        this.complimentaryHue2 = this.hue + 60;
-        this.saturation = 95;
-        this.lightness = 50;
-    
-        this.baseColor = hsl(this.hue, this.saturation, this.lightness);
-        this.complimentaryColor1 = hsl(
-          this.complimentaryHue1,
-          this.saturation,
-          this.lightness
-        );
-        this.complimentaryColor2 = hsl(
-          this.complimentaryHue2,
-          this.saturation,
-          this.lightness
-        );
-    
-        this.colorChoices = [
-          this.baseColor,
-          this.complimentaryColor1,
-          this.complimentaryColor2
-        ];
-      }
-    
-      randomColor() {
-        return this.colorChoices[~~random(0, this.colorChoices.length)].replace(
-          "#",
-          "0x"
-        );
-      }
-    
-      setCustomProperties() {
-        document.documentElement.style.setProperty("--hue", this.hue);
-        document.documentElement.style.setProperty(
-          "--hue-complimentary1",
-          this.complimentaryHue1
-        );
-        document.documentElement.style.setProperty(
-          "--hue-complimentary2",
-          this.complimentaryHue2
-        );
-      }
-    }
-    
-    class Orb {
-      constructor(fill = 0x000000) {
-        this.bounds = this.setBounds();
-        this.x = random(this.bounds["x"].min, this.bounds["x"].max);
-        this.y = random(this.bounds["y"].min, this.bounds["y"].max);
-    
-        this.scale = 1;
-    
-        this.fill = fill;
-    
-        this.radius = random(window.innerHeight / 6, window.innerHeight / 3);
-    
-        this.xOff = random(0, 1000);
-        this.yOff = random(0, 1000);
-        this.inc = 0.002;
-    
-        this.graphics = new PIXI.Graphics();
-        this.graphics.alpha = 0.825;
-    
-        window.addEventListener(
-          "resize",
-          debounce(() => {
-            this.bounds = this.setBounds();
-          }, 250)
-        );
-      }
-    
-      setBounds() {
-        const maxDist =
-          window.innerWidth < 1000 ? window.innerWidth / 3 : window.innerWidth / 5;
-        const originX = window.innerWidth / 1.25;
-        const originY =
-          window.innerWidth < 1000
-            ? window.innerHeight
-            : window.innerHeight / 1.375;
-    
-        return {
-          x: {
-            min: originX - maxDist,
-            max: originX + maxDist
-          },
-          y: {
-            min: originY - maxDist,
-            max: originY + maxDist
-          }
-        };
-      }
-    
-      update() {
-        const xNoise = simplex.noise2D(this.xOff, this.xOff);
-        const yNoise = simplex.noise2D(this.yOff, this.yOff);
-        const scaleNoise = simplex.noise2D(this.xOff, this.yOff);
-    
-        this.x = map(xNoise, -1, 1, this.bounds["x"].min, this.bounds["x"].max);
-        this.y = map(yNoise, -1, 1, this.bounds["y"].min, this.bounds["y"].max);
-        this.scale = map(scaleNoise, -1, 1, 0.5, 1);
-    
-        this.xOff += this.inc;
-        this.yOff += this.inc;
-      }
-    
-      render() {
-        this.graphics.x = this.x;
-        this.graphics.y = this.y;
-        this.graphics.scale.set(this.scale);
-    
-        this.graphics.clear();
-    
-        this.graphics.beginFill(this.fill);
-        this.graphics.drawCircle(0, 0, this.radius);
-        this.graphics.endFill();
-      }
-    }
-    
-    const app = new PIXI.Application({
-      view: document.querySelector(".orb-canvas"),
-      resizeTo: window,
-      transparent: true
-    });
-    
-    app.stage.filters = [new KawaseBlurFilter(30, 10, true)];
-    
-    const colorPalette = new ColorPalette();
-    
-    const orbs = [];
-    
-    for (let i = 0; i < 10; i++) {
-      const orb = new Orb(colorPalette.randomColor());
-    
-      app.stage.addChild(orb.graphics);
-    
-      orbs.push(orb);
-    }
-    
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      app.ticker.add(() => {
-        orbs.forEach((orb) => {
-          orb.update();
-          orb.render();
-        });
-      });
-    } else {
-      orbs.forEach((orb) => {
-        orb.update();
-        orb.render();
-      });
-    }
-    
-    document.addEventListener("click", () => {
-  colorPalette.setColors();
-  colorPalette.setCustomProperties();
-
-  orbs.forEach((orb) => {
-    orb.fill = colorPalette.randomColor();
-  });
-});
-
-    
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
