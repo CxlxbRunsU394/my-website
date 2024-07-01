@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Were-Beast Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Were-Beast Regular'), url('WereBeast-nRPAV.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Were-Beast Shadow Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Were-Beast Shadow Regular'), url('WereBeastShadow-yw9Yd.woff') format('woff');
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Were-Beast Regular', 'Were-Beast Shadow Regular', sans-serif;
+}
+
+main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 30;
+    cursor: pointer;
+}
+
+#overlay span {
+    color: #d8d8d8bf;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+@keyframes remove {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+#overlay.hide {
+    animation: remove 500ms cubic-bezier(.4,0,.2,1);
+    animation-fill-mode: forwards;
+}
