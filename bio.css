@@ -19,6 +19,7 @@ body, html {
     height: 100%;
     overflow: hidden;
     font-family: 'Were-Beast Regular', 'Were-Beast Shadow Regular', sans-serif;
+    user-select: none;
 }
 
 main {
@@ -82,4 +83,29 @@ main {
     width: 126px;
     height: 125px;
     border-radius: 50%;
+}
+
+.bio-name {
+    position: fixed;
+    top: calc(50% + 60px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+    line-height: 1.2;
+    color: #9eedff;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.sparkle {
+    position: fixed;
+    top: calc(50% + 100px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    z-index: 20;
+    object-fit: cover;
+    pointer-events: none;
 }
