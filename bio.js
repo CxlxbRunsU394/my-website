@@ -23,15 +23,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
             toggle = !toggle;
             if (toggle) {
                 video.src = "https://cdn.xoa.me/uploads/8ace57a7-6cb1-4b6e-bf55-ab5f0679b2fc.mp4";
-                document.documentElement.style.setProperty('--main-color', 'rgba(255, 255, 255, 1)');
-                document.querySelector('.bio-card').style.backgroundColor = 'rgb(143 143 143 / 20%)';
+                document.documentElement.style.setProperty('--main-color', '#ffffff');
+                document.querySelector('.bio-card').style.backgroundColor = 'rgba(255,255,255,0.15)';
+                setTimeout(() => {
+                    document.documentElement.style.setProperty('--main-color', '#0f0');
+                    document.querySelector('.bio-card').style.color = '#0f0';
+                    document.querySelector('.bio-card').style.backgroundColor = 'rgba(255,255,255,0.15)';
+                    document.querySelector('.bio-card').style.animation = 'perc 3s linear infinite'; 
+                }, 11400);
             } else {
                 video.src = "https://cdn.xoa.me/uploads/e241ad16-72a0-41f1-9568-d63a4ca3045c.mp4";
                 document.documentElement.style.setProperty('--main-color', '#7c269c');
-                document.querySelector('.bio-card').style.backgroundColor = 'rgba(110, 55, 138, 0.2)';
+                document.querySelector('.bio-card').style.color = '#000';
+                document.querySelector('.bio-card').style.animation = 'none';
             }
             video.play();
-
+    
             switchm = false;
             setTimeout(() => {
                 switchm = true;

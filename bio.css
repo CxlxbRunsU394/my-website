@@ -113,6 +113,7 @@ body {
     object-fit: cover;
     cursor: pointer;
     transition: 0.5s ease;
+    filter: none;
 }
 
 .bio-card img:hover {
@@ -307,5 +308,14 @@ body {
     100% {
         top: 100vh;
         opacity: 0.2;
+    }
+}
+
+@keyframes perc {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
     }
 }
