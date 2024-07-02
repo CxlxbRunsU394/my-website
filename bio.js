@@ -88,7 +88,7 @@ let base = "@Cxlxb";
 let title = "";
 
 
-function animateTitle() {
+function changeT() {
     let direction = 1; 
     let index = 0;
 
@@ -114,5 +114,4 @@ function animateTitle() {
     }, 400);
 }
 
-// Start animating the title
-animateTitle();
+changeT();
