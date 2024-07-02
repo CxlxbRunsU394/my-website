@@ -85,24 +85,21 @@ function snowlol() {
 }
 
 let base = "@Cxlxb";
-let title = "@";
-
+let title = base; 
 
 function changeT() {
-    let direction = 1; 
+    let direction = 1;
     let index = 0;
 
     setInterval(() => {
         if (direction === 1) {
-            title = base.slice(0, index);
             index++;
 
-            if (index > base.length) {
+            if (index > base.length - 1) { 
                 direction = -1;
                 index = base.length - 1;
             }
         } else {
-            title = base.slice(0, index);
             index--;
 
             if (index === 0) {
@@ -110,6 +107,7 @@ function changeT() {
             }
         }
 
+        title = base.slice(0, index + 1);
         document.title = title;
     }, 350);
 }
