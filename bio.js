@@ -27,9 +27,10 @@ function showNotification(message) {
     const notification = document.createElement('div');
     notification.textContent = message;
     notification.style.position = 'fixed';
-    notification.style.top = '10px';
-    notification.style.right = '10px';
+    notification.style.top = '25px';
+    notification.style.right = '25px';
     notification.style.backgroundColor = '#000';
+    notification.style.boxShadow = '0 0 50px #7c269c';
     notification.style.color = '#fff';
     notification.style.padding = '10px';
     notification.style.borderRadius = '5px';

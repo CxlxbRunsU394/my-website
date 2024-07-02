@@ -111,13 +111,17 @@ body {
     box-shadow: 0 0 25px var(--main-color);
     object-fit: cover;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: 0.5s ease;
 }
 
 .bio-card img:hover {
     box-shadow: 0 0 25px var(--main-color),
                 0 0 50px var (--main-color),
                 0 0 100px var(--main-color);
+}
+
+.profile-pic.grayscale {
+    filter: grayscale(100%);
 }
 
 .bio-card {
@@ -128,7 +132,7 @@ body {
     gap: 0.5em;
     padding: 2em 2.5em;
     border-radius: 2em;
-    background-color: rgba(207, 207, 207, 0.2);
+    background-color: rgba(110, 55, 138, 0.2);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     color: #000;
