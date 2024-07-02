@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const videoOverlay = document.getElementById('video-lol');
     const profilePic = document.getElementById('pfp');
     let toggle = false;
+    let switchm = true;
 
     overlay.addEventListener('click', () => {
         overlay.classList.add('hide');
@@ -18,17 +19,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     profilePic.addEventListener('click', () => {
-        toggle = !toggle;
-        if (toggle) {
-            video.src = "https://cdn.xoa.me/uploads/8ace57a7-6cb1-4b6e-bf55-ab5f0679b2fc.mp4";
-            document.documentElement.style.setProperty('--main-color', 'rgba(255, 255, 255, 1)');
-            document.querySelector('.bio-card').style.backgroundColor = 'rgb(143 143 143 / 20%)';
-        } else {
-            video.src = "https://cdn.xoa.me/uploads/e241ad16-72a0-41f1-9568-d63a4ca3045c.mp4";
-            document.documentElement.style.setProperty('--main-color', '#7c269c');
-            document.querySelector('.bio-card').style.backgroundColor = 'rgba(110, 55, 138, 0.2)';
+        if (switchm) {
+            toggle = !toggle;
+            if (toggle) {
+                video.src = "https://cdn.xoa.me/uploads/8ace57a7-6cb1-4b6e-bf55-ab5f0679b2fc.mp4";
+                document.documentElement.style.setProperty('--main-color', 'rgba(255, 255, 255, 1)');
+                document.querySelector('.bio-card').style.backgroundColor = 'rgb(143 143 143 / 20%)';
+            } else {
+                video.src = "https://cdn.xoa.me/uploads/e241ad16-72a0-41f1-9568-d63a4ca3045c.mp4";
+                document.documentElement.style.setProperty('--main-color', '#7c269c');
+                document.querySelector('.bio-card').style.backgroundColor = 'rgba(110, 55, 138, 0.2)';
+            }
+            video.play();
+
+            switchm = false;
+            setTimeout(() => {
+                switchm = true;
+            }, 2500);
         }
-        video.play();
     });    
 });
 
@@ -85,7 +93,7 @@ function snowlol() {
 }
 
 let base = "@Cxlxb";
-let title = base; 
+let title = base;
 
 function changeT() {
     let direction = 1;
@@ -107,7 +115,7 @@ function changeT() {
             }
         }
 
-        title = base.slice(0, index + 1);
+        title = base.slice(0, index + 1); 
         document.title = title;
     }, 350);
 }
