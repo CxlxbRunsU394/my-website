@@ -1,32 +1,41 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const overlay = document.getElementById('overlay');
-    const audio = document.getElementById('bga');
-    
+    const video = document.getElementById('bgv');
+    const videoOverlay = document.getElementById('video-lol');
+
     overlay.addEventListener('click', () => {
-        audio.play();
         overlay.classList.add('hide');
-
-        const dark = document.createElement('div');
-        dark.classList.add('dark-overlay');
-        document.body.appendChild(dark);
-
-        const pfpic = document.createElement('img');
-        pfpic.src = 'pfp.png';
-        pfpic.classList.add('profile-pic');
-        document.body.appendChild(pfpic);
-
-        const name = document.createElement('h1');
-        name.textContent = '! VIBEZ';
-        name.classList.add('bio-name');
-        document.body.appendChild(name);
-
-        const sparkle = document.createElement('img');
-        sparkle.src = 'sparkle.gif';
-        sparkle.classList.add('sparkle');
-        document.body.appendChild(sparkle);
+        video.classList.remove('hidden-video');
+        videoOverlay.classList.remove('hidden-overlay');
+        video.play();
 
         setTimeout(() => {
             overlay.remove();
         }, 500);
     });
 });
+
+function clipB(text) {
+    navigator.clipboard.writeText(text).then(function() {
+        showNotification("Cashapp copied to clipboard");
+    }, function() {
+        showNotification("Failed to copy");
+    });
+}
+
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.textContent = message;
+    notification.style.position = 'fixed';
+    notification.style.top = '10px';
+    notification.style.right = '10px';
+    notification.style.backgroundColor = '#000';
+    notification.style.color = '#fff';
+    notification.style.padding = '10px';
+    notification.style.borderRadius = '5px';
+    notification.style.zIndex = '1000';
+    document.body.appendChild(notification);
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
