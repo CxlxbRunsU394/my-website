@@ -85,7 +85,7 @@ function snowlol() {
 }
 
 let base = "@Cxlxb";
-let title = "";
+let title = "@";
 
 
 function changeT() {
@@ -111,7 +111,7 @@ function changeT() {
         }
 
         document.title = title;
-    }, 400);
+    }, 350);
 }
 
 changeT();
