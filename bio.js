@@ -83,3 +83,36 @@ function snowlol() {
 
     setInterval(createS, 300);
 }
+
+let base = "@Cxlxb";
+let title = "";
+
+
+function animateTitle() {
+    let direction = 1; 
+    let index = 0;
+
+    setInterval(() => {
+        if (direction === 1) {
+            title = base.slice(0, index);
+            index++;
+
+            if (index > base.length) {
+                direction = -1;
+                index = base.length - 1;
+            }
+        } else {
+            title = base.slice(0, index);
+            index--;
+
+            if (index === 0) {
+                direction = 1;
+            }
+        }
+
+        document.title = title;
+    }, 400);
+}
+
+// Start animating the title
+animateTitle();
