@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Were-Beast Regular', 'Were-Beast Shadow Regular', sans-serif;
+    user-select: none;
 }
 
 :root {
@@ -100,7 +101,7 @@ body {
 }
 
 #video-lol:not(.hidden-o) {
-    opacity: 1;
+    opacity: 0.1;
 }
 
 .bio-card img {
@@ -116,13 +117,10 @@ body {
 
 .bio-card img:hover {
     box-shadow: 0 0 25px var(--main-color),
-                0 0 50px var (--main-color),
+                0 0 50px var(--main-color),
                 0 0 100px var(--main-color);
 }
 
-.profile-pic.grayscale {
-    filter: grayscale(100%);
-}
 
 .bio-card {
     display: flex;
@@ -221,6 +219,7 @@ body {
 .info p {
     color: var(--main-color);
     text-shadow: 2px 2px 12px var(--main-color);
+    transition: 0.4s ease;
 }
 
 .info-box .socials {
@@ -275,5 +274,38 @@ body {
     .btn-box button {
         width: 100%;
         margin-bottom: 1em;
+    }
+}
+
+.snow-c {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.star {
+    width: 3px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    animation: starfall 10s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes starfall {
+    0% {
+        top: -10px;
+        opacity: 0.8;
+    }
+    100% {
+        top: 100vh;
+        opacity: 0.2;
     }
 }
