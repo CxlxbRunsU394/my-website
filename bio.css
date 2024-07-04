@@ -319,3 +319,21 @@ body {
         filter: hue-rotate(360deg);
     }
 }
+
+#typewriter {
+    display: inline-block;
+    overflow: hidden; 
+    border-right: .15em solid var(--main-color);
+    white-space: nowrap;
+    animation: typing 4s steps(30, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--main-color); }
+}
