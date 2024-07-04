@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const overlay = document.getElementById('overlay');
     const video = document.getElementById('bgv');
+    const audio = document.getElementById('bgm');
     const videoOverlay = document.getElementById('video-lol');
     const profilePic = document.getElementById('pfp');
     let toggle = false;
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         video.classList.remove('hidden');
         videoOverlay.classList.remove('hidden-o');
         video.play();
+        audio.play();
 
         setTimeout(() => {
             overlay.remove();
@@ -23,6 +25,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             toggle = !toggle;
             if (toggle) {
                 video.src = "vid.mp4";
+                audio.src = "https://cdn.discordapp.com/attachments/1209172169179791430/1215608441658281994/Carti_9AMinCalabasas.mp3?ex=66872355&is=6685d1d5&hm=f7203d4438d3e9a7615917d0d54c3b3f3f3cb25175156d7de0148c920a5146fe&";
+                audio.play();
                 document.documentElement.style.setProperty('--main-color', '#ffffff');
                 document.querySelector('.bio-card').style.backgroundColor = 'rgb(143 143 143 / 20%)';
                 setTimeout(() => {
@@ -33,6 +37,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 }, 100);
             } else {
                 video.src = "https://cdn.xoa.me/uploads/e241ad16-72a0-41f1-9568-d63a4ca3045c.mp4";
+                audio.pause();
+                audio.currentTime = 0;
                 document.documentElement.style.setProperty('--main-color', '#7c269c');
                 document.querySelector('.bio-card').style.backgroundColor = 'rgba(124, 38, 156, 0.2)';
                 document.querySelector('.bio-card').style.color = '#000';

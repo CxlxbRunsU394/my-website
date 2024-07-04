@@ -8,7 +8,12 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
 </head>
 <body>
-    <video id="bgv" loop playsinline preload="auto" src="https://cdn.xoa.me/uploads/e241ad16-72a0-41f1-9568-d63a4ca3045c.mp4" class="hidden"></video>
+    <video id="bgv" loop playsinline preload="auto" class="hidden">
+        <source src="https://cdn.xoa.me/uploads/e241ad16-72a0-41f1-9568-d63a4ca3045c.mp4" type="video/mp4">
+    </video>
+    <audio id="bgm" loop>
+        <source src="https://cdn.discordapp.com/attachments/1209172169179791430/1215608441658281994/Carti_9AMinCalabasas.mp3?ex=66872355&is=6685d1d5&hm=f7203d4438d3e9a7615917d0d54c3b3f3f3cb25175156d7de0148c920a5146fe&" type="audio/mp3">
+    </audio>
     <div id="video-lol" class="hidden-o"></div>
 
     <div id="overlay">
