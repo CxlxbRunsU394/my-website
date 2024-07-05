@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             toggle = !toggle;
             if (toggle) {
                 video.src = "vid.mp4";
-                audio.src = "https://cdn.discordapp.com/attachments/1209172169179791430/1215608441658281994/Carti_9AMinCalabasas.mp3?ex=66872355&is=6685d1d5&hm=f7203d4438d3e9a7615917d0d54c3b3f3f3cb25175156d7de0148c920a5146fe&";
+                audio.src = "https://cdn.discordapp.com/attachments/1138628081377095852/1258560088961187871/Carti_9AMinCalabasas.mp3?ex=66887cec&is=66872b6c&hm=3621fc94c40a7f53f75a3bd120211f7b9d05fba916acb8eb4c0386aa26eeac13&";
                 audio.play();
                 document.documentElement.style.setProperty('--main-color', '#ffffff');
                 document.querySelector('.bio-card').style.backgroundColor = 'rgb(143 143 143 / 20%)';
