@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             toggle = !toggle;
             if (toggle) {
                 video.src = "vid.mp4";
-                audio.src = "https://cdn.discordapp.com/attachments/1138628081377095852/1258560088961187871/Carti_9AMinCalabasas.mp3?ex=66887cec&is=66872b6c&hm=3621fc94c40a7f53f75a3bd120211f7b9d05fba916acb8eb4c0386aa26eeac13&";
+                audio.src = "bgaudio.mp3";
                 audio.play();
                 document.documentElement.style.setProperty('--main-color', '#ffffff');
                 document.querySelector('.bio-card').style.backgroundColor = 'rgb(143 143 143 / 20%)';
