@@ -98,7 +98,7 @@ function typer() {
 
 function clipB(text) {
     navigator.clipboard.writeText(text).then(function() {
-        showNotification("Cashapp copied to clipboard");
+        showNotification("copied cashapp :)");
     }, function() {
         showNotification("Failed to copy");
     });
